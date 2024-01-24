@@ -1,5 +1,6 @@
 import os
 import math
+import serial
 import serial.tools.list_ports
 import threading
 import tkinter as tk
@@ -7,6 +8,7 @@ import tkinter.ttk as ttk
 from datetime import datetime
 from tkinter import filedialog
 from tkinter import Button, Entry, Label, StringVar
+
 
 
 class SerialPortManager:

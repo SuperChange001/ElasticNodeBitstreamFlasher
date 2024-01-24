@@ -11,8 +11,7 @@ A gui tool to upload bitstream to elastic node.
 # Usage
 1. Install dependencies, for example on Ubuntu:
 ``` bash
-pip install pyserial
-pip install python-tk
+pip install serial
 sudo apt install python3-tk
 ```
 2. Upload the prebuild firmware to your elastic node.
