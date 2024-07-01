@@ -60,7 +60,9 @@ class SerialPortManager:
 
     def get_serial_ports(self):
         ports = serial.tools.list_ports.comports()
-        return [port for port, desc, hwid in sorted(ports) if desc.startswith("Pico")]
+        for port, desc, hwid in sorted(ports):
+            print(desc)
+        return [port for port, desc, hwid in sorted(ports) if desc.startswith("Pico") or desc.startswith("USB Serial Device")]
 
     def start_trassmission(self):
         self._serial_port.write(b'1')
