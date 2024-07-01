@@ -59,3 +59,16 @@ sudo apt install python3-tk
 ![gui](./pictures/done_message.png)
 
 8. Now bitfile is uploaded, you can upload you application image to the pico mcu.
+
+# Troubleshooting
+1. My firmware will attach two `USB serial Device COMx` on Windows OS, but when the system language is set to Japanese, the device description will become `USB xxxxx xxxxx COMx` (xxxxx is the Japanese characters), so we decide to only use `USB` as the filter characters. Code ref:
+``` python
+    def get_serial_ports(self):
+        ports = serial.tools.list_ports.comports()
+        print("=========================\r\n")
+        print("If you don't find serial devices in the list view, please take a screen short of the logging information below and fire an issue request\r\n")
+        for port, desc, hwid in sorted(ports):
+            print(desc)
+        print("=========================\r\n")
+        return [port for port, desc, hwid in sorted(ports) if desc.startswith("Pico") or desc.startswith("USB")]
+```
